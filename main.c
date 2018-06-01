@@ -5,7 +5,7 @@
 
 int main(void){
 	
-	FILE *arq = fopen("listapalavras.txt", "r");
+	FILE *arq = fopen("palavras.txt", "r");
 	if(arq == NULL){
 		printf("Erro! Nao foi possivel abrir o arquivo.\n");
 		return 1;
@@ -13,10 +13,10 @@ int main(void){
 		
 	Arvore *a = ArvoreNovo(); /*Arvore*/
 	/*inserir o dicionario na arvore somando o valor de seus caracteres*/
-	char info[50]; /*Vetor que receberá a linha na função fgets*/
+	char info[50]; /*Vetor que receberÃ¡ a linha na funÃ§Ã£o fgets*/
 	while( (fgets(info, sizeof(info), arq))!= NULL ){
 		int i = 0, c = 0; /*contador e variavel que armazena a soma dos caracteres da linha, respectivamente*/
-		while(i < strlen(info)-1){/* -1, pois o fgets captura também \n, dessa forma, evita a soma de +10 ao valor*/
+		while(i < strlen(info)-1){/* -1, pois o fgets captura tambÃ©m \n, dessa forma, evita a soma de +10 ao valor*/
 			c = c + info[i];
 			i++;
 		}
@@ -29,11 +29,11 @@ int main(void){
 		char palavra[45];
 		scanf("%s", palavra);
 		
-		/*Conversão de maiusculo para minusculo*/
+		/*ConversÃ£o de maiusculo para minusculo*/
 		int i = 0;
 		for(i = 0; i < strlen(palavra); i++){
 			if(palavra[i] >= 65 && palavra[i] < 90){ /*Valores decimais respectivos aos caracteres 'A' e 'Z' em ASCII*/
-				palavra[i] += 32; /*Valor necessario para realizar a conversão*/
+				palavra[i] += 32; /*Valor necessario para realizar a conversÃ£o*/
 			}
 			if(palavra[i] == '!'){ /*fechar programa*/
 				ArvoreDestruir(a);
@@ -52,7 +52,7 @@ int main(void){
 			i++;
 		}
 		
-		NoArvore *temporario = a->Raiz; /*criando o Nó Temporario que percorre a Arvore*/	
+		NoArvore *temporario = a->Raiz; /*criando o NÃ³ Temporario que percorre a Arvore*/	
 		int totalAnagramas = 0;
 				
 		while(temporario){
@@ -69,7 +69,7 @@ int main(void){
 					ListaRemover(aux, palavra[i]);
 					i++;
 				}
-				if(aux->Quantidade == 0){ /*se a Lista auxiliar estiver vazia, a palavra é válida*/
+				if(aux->Quantidade == 0){ /*se a Lista auxiliar estiver vazia, a palavra Ã© vÃ¡lida*/
 					printf("%s\n", temporario->string);
 					totalAnagramas += 1;
 				}
@@ -89,7 +89,7 @@ int main(void){
 		if(totalAnagramas == 0){
 			printf("\nNao ha ocorrencias de anagramas contendo essas letras!\n\n");
 		}
-		/*printf("%d\n", totalPesquisas); /*numero de ocorrências onde a soma dos caracteres são iguais*/
+		/*printf("%d\n", totalPesquisas); /*numero de ocorrÃªncias onde a soma dos caracteres sÃ£o iguais*/
 		system("pause");
 	}
 	
