@@ -1,4 +1,4 @@
-# Searching-Words-with-Search-Binary-Tree
+# Procurando palavras com arvore binaria
 This program was developed in language C for data structure in university
 
 - Programa desenvolvido na linguagem C para aula de Estrutura de Dados.
